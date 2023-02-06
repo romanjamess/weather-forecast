@@ -1,13 +1,14 @@
 const apiKey = "4caa09ce33acc0a294dfdbe9a03e5a23";
 const button = document.querySelector(".btn");
+const cityInput = document.querySelector(".searchBox")
 // const h2 = document.getElementById("city-title");
 // https://api.openweathermap.org/data/3.0/onecall?lat={lat}&lon={lon}&appid={API key}
 
 
 // fetching the api 
 function getApi() {
-  var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=Dallas&appid=${apiKey}`
-    
+  var requestUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&units=imperial&appid=${apiKey}`
+    console.log(cityInput.value);
 
     fetch(requestUrl)
     .then(function (response){
@@ -16,6 +17,7 @@ function getApi() {
         return response.json()
         .then(function(data){
           display(data)
+          saveHistory(cityInput.value)
             // console.log(data)
         })
       }else {
@@ -26,19 +28,31 @@ function getApi() {
    
       
 }
-getApi();
+
+function saveHistory (city){
+  let searchHistory = JSON.parse(localStorage.getItem("history"))|| []
+  searchHistory.push(city)
+  localStorage.setItem( "history" ,JSON.stringify(searchHistory))
+}
+
 
 function display(data) {
 //  console.log(data.main);
  let temp = data.main.temp 
-  temp = Math.round((temp - 273.15) * 9/5 + 32)
+  // temp = Math.round((temp - 273.15) * 9/5 + 32)
 //  console.log(temp);
 let humidity = data.main.humidity 
 let wind = data.wind.speed
 let cityName = data.name
+let date = data.dt
+// unix time stamp 
+let currentDate = new Date(date * 1000)
+let formattedDate = currentDate.toLocaleDateString()
+console.log(formattedDate)
 //appending data to current weather
 //  $("#current-temp").append($("li")("Temp: " + temp))
-$("#current-temp").append(temp);
+$("#city-title").text(" ")
+$("#current-temp").append(`Temp : ${temp} F`);
  $("#current-humidity").append(humidity);
  $("#current-wind").append(wind);
  $("#city-title").append(cityName)
@@ -49,7 +63,7 @@ $("#current-temp").append(temp);
 //5 day forecast function 
 function forecast(){
 
-var url = `https://api.openweathermap.org/data/2.5/forecast?q=austin&appid=${apiKey}`
+var url = `https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&units=imperial&appid=${apiKey}`
 
   fetch(url)
   .then(function (response){
@@ -66,12 +80,12 @@ var url = `https://api.openweathermap.org/data/2.5/forecast?q=austin&appid=${api
   })
 }
 
-forecast();
+
 
 function displayDays (data) {
 // console.log(data.list[0].main.temp);
 let temp1 = data.list[0].main.temp
-temp1 = Math.round((temp1 - 273.15) * 9/5 + 32)
+// temp1 = Math.round((temp1 - 273.15) * 9/5 + 32)
 console.log(temp1)
 
 
@@ -81,7 +95,8 @@ let wind1 = data.list[0].wind.speed
 let cityName1 = data.city.name
 
 // day one 
-$("#day-one").append($("<h4>").html(cityName1));
+$("#day-one").text(" ")
+$("#day-one").append($("<h4 class='card-title'>").html(cityName1));
 $("#day-one").append($("<p>").html("Temp: " + temp1 + "  °F"));
 $("#day-one").append($("<p>").html("Humidity: " + humidity1 + "%"));
 $("#day-one").append($("<p>").html("Wind Speed: " + wind1+ "  MPH"));
@@ -139,21 +154,23 @@ $("#day-five").append($("<p>").html("Wind Speed: " + wind5+ "  MPH"));
 
 }
 
-// getApi();
-
-// create another function for the forecast 
-// append it to the page in another function the same way we did 
-//
 
 
 
 
-//grab the city value from input box
-// now i need to append the new york parameter to the page 
-// after i have to append the users input to the page instead of the new york parameter
-// next to append the 5 day forecast to the page 
- 
+button.addEventListener("click" , () => {
+  getApi ()
+  forecast ()
+})
 
 
+//questions 
+//do i have to math for each card? 
+//get the users input instead of the hard code?
+//get the css to operate with me?
+// display local storage of last 5 searched?
+//apply dates to correct cards
+//append the current text the same way as the forecast text
 
-button.addEventListener("click" , getApi )
+
+//function local store get.item 
