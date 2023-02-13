@@ -5,7 +5,6 @@
 https://romanjamess.github.io/weather-forecast/
 
 <br>
-
 # Description
 a weather dashboard to search and view any city of your selection 
 <br>
@@ -19,7 +18,8 @@ challenges i encountered was the api actually getting it to format the way i wan
 grabbing the local storage and appending it to the page which i was not able to accomplish 
 i plan on coming back to this challenge to complete it 100%
 <br>
-#ScreenShot
+
+# ScreenShot
 ![image](https://user-images.githubusercontent.com/118143164/218357374-2837d243-b19e-42b8-af11-807c46bec166.png)
 
 
