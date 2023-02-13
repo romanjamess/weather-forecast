@@ -29,18 +29,20 @@ function getApi() {
       
 }
 
-function saveHistory (city){
-  let searchHistory = JSON.parse(localStorage.getItem("history"))|| []
-  searchHistory.push(city)
-  localStorage.setItem( "history" ,JSON.stringify(searchHistory))
-  $("#history").text(" ")
-   for (let i=0; i < searchHistory.length; i++) {
+//i was unable to do this :(
   
-    $("#history").append($("<button>").html(searchHistory[i]));
-    // console.log(searchHistory[i])
-   }
+// function saveHistory (city){
+//   let searchHistory = JSON.parse(localStorage.getItem("history"))|| []
+//   searchHistory.push(city)
+//   localStorage.setItem( "history" ,JSON.stringify(searchHistory))
+//   $("#history").text(" ")
+//    for (let i=0; i < searchHistory.length; i++) {
   
-}
+//     $("#history").append($("<button>").html(searchHistory[i]));
+//     // console.log(searchHistory[i])
+//    }
+  
+// }
 //push the new one to the current array
 // global search history
 // function that saves searchhistory
