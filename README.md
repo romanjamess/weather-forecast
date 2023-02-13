@@ -5,14 +5,17 @@
 https://romanjamess.github.io/weather-forecast/
 
 <br>
+
 # Description
 a weather dashboard to search and view any city of your selection 
 <br>
+
 # Usage
 1.Search a city in the input box
 2.The current weather for the selected will appear to the right of the current weather title 
 3.The 5 day forecast for the selected will appear in its own container
 <br>
+
 # Challenges
 challenges i encountered was the api actually getting it to format the way i wanted it to 
 grabbing the local storage and appending it to the page which i was not able to accomplish 
