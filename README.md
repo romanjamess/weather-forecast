@@ -2,7 +2,6 @@
 <br>
 
 # Link
-<br>
 https://romanjamess.github.io/weather-forecast/
 
 <br>
