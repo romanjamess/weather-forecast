@@ -11,9 +11,11 @@ a weather dashboard to search and view any city of your selection
 <br>
 
 # Usage
-1.Search a city in the input box
-2.The current weather for the selected will appear to the right of the current weather title 
-3.The 5 day forecast for the selected will appear in its own container
+<ul>
+  <li> 1.Search a city in the input box </li>
+<li> 2.The current weather for the selected will appear to the right of the current weather title </li>
+  <li> 3.The 5 day forecast for the selected will appear in its own container </li>
+  </ul>
 <br>
 
 # Challenges
