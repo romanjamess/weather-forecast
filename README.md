@@ -12,9 +12,9 @@ a weather dashboard to search and view any city of your selection
 
 # Usage
 <ul>
-  <li> 1.Search a city in the input box </li>
-<li> 2.The current weather for the selected will appear to the right of the current weather title </li>
-  <li> 3.The 5 day forecast for the selected will appear in its own container </li>
+  <li>Search a city in the input box </li>
+<li>The current weather for the selected will appear to the right of the current weather title </li>
+  <li>The 5 day forecast for the selected will appear in its own container </li>
   </ul>
 <br>
 
